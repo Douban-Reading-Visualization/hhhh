@@ -291,20 +291,20 @@
             data: {
                 data: {
                     "public": [
-                        99,
-                        83,
-                        100,
-                        34,
-                        25,
-                        21
+                        27,
+                        23,
+                        28,
+                        9,
+                        7,
+                        6
                     ],
                     "comment": [
-                        -32,
-                        -100,
-                        -10,
-                        -88,
-                        -3,
-                        -13
+                        -13,
+                        -41,
+                        -4,
+                        -36,
+                        -1,
+                        -5
                     ],
                     "score": [
                         7.52,
@@ -331,10 +331,17 @@
                             // 计算最大值
                             const maxPublic = Math.max(...this.data.public);
                             const maxComment = Math.max(...this.data.comment);
-
+                            var sumPublic = 0;
+                            for (var i = 0; i < this.data.public.length; i++) {
+                                sumPublic += this.data.public[i];
+                            }
+                            var sumComment = 0;
+                            for (var i = 0; i < this.data.comment.length; i++) {
+                                sumComment += this.data.comment[i];
+                            }
                             // 归一化处理
-                            this.data.public = this.data.public.map(value => Math.round(value / maxPublic * 100));
-                            this.data.comment = this.data.comment.map(value => -Math.round(value / maxComment * 100));
+                            this.data.public = this.data.public.map(value => Math.round(value / sumPublic * 100));
+                            this.data.comment = this.data.comment.map(value => -Math.round(value / sumComment * 100));
 
 
                             var option = {
@@ -354,7 +361,7 @@
                                             "#6e7d75",
                                             "#becbcf",
                                         ],
-                                        name: '出版数量',
+                                        name: '出版',
                                         type: 'bar',
                                         stack: 'Total',
                                         label: {
@@ -387,7 +394,7 @@
                                             "#6e7d75",
                                             "#becbcf",
                                         ],
-                                        name: '评论人数',
+                                        name: '评论',
                                         type: 'bar',
                                         stack: 'Total',
                                         label: {
@@ -421,7 +428,7 @@
                         }
                     },
                     legend: {
-                        data: ['评论人数', '出版数量', '综合评分']
+                        data: ['评论', '出版', '综合评分']
                     },
                     grid: {
                         left: '3%',
@@ -453,7 +460,7 @@
                                 "#6e7d75",
                                 "#becbcf",
                             ],
-                            name: '出版数量',
+                            name: '出版',
                             type: 'bar',
                             stack: 'Total',
                             label: {
@@ -486,7 +493,7 @@
                                 "#6e7d75",
                                 "#becbcf",
                             ],
-                            name: '评论人数',
+                            name: '评论',
                             type: 'bar',
                             stack: 'Total',
                             label: {
