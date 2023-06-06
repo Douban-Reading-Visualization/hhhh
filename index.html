@@ -307,12 +307,12 @@
                         -5
                     ],
                     "score": [
-                        7.52,
-                        6.562,
-                        7.047,
-                        6.887,
-                        5.46,
-                        5.606
+                        28,
+                        17,
+                        23,
+                        21,
+                        5,
+                        7
                     ]
                 }
             },
@@ -326,8 +326,6 @@
                             this.data.public = data[msg - 2000].public;
                             this.data.score = data[msg - 2000].score;
                             this.data.comment = data[msg - 2000].comment;
-
-
                             // 计算最大值
                             const maxPublic = Math.max(...this.data.public);
                             const maxComment = Math.max(...this.data.comment);
@@ -339,10 +337,17 @@
                             for (var i = 0; i < this.data.comment.length; i++) {
                                 sumComment += this.data.comment[i];
                             }
+                            var minScore = Math.min(...this.data.score)
+                            this.data.score = this.data.score.map(value => value - minScore);
+                            var sumScore = 0;
+                            for (var i = 0; i < this.data.score.length; i++) {
+                                sumScore += this.data.score[i];
+                            }
                             // 归一化处理
                             this.data.public = this.data.public.map(value => Math.round(value / sumPublic * 100));
                             this.data.comment = this.data.comment.map(value => -Math.round(value / sumComment * 100));
 
+                            this.data.score = this.data.score.map(value => Math.round(value / sumScore * 100));
 
                             var option = {
                                 title: {
@@ -374,8 +379,6 @@
                                     },
                                     {
                                         color: [
-
-                                            "#ecbcb0",
                                             "#ce7870",
                                             "#826a5f",
                                             "#6e7d75",
@@ -383,12 +386,11 @@
                                         ],
                                         name: '综合评分',
                                         type: 'line',
-                                        stack: 'Total',
+                                        //stack: 'Total',
                                         data: this.data.score
                                     },
                                     {
                                         color: [
-
                                             "#ecbcb0",
                                             "#826a5f",
                                             "#6e7d75",
@@ -399,13 +401,24 @@
                                         stack: 'Total',
                                         label: {
                                             show: true,
-
                                         },
                                         emphasis: {
                                             focus: 'series'
                                         },
                                         data: this.data.comment
-                                    }
+                                    },
+                                    {
+                                        color: [
+                                            "#ce7870",
+                                            "#826a5f",
+                                            "#6e7d75",
+                                            "#becbcf",
+                                        ],
+                                        name: '综合评分',
+                                        type: 'line',
+                                        //stack: 'Total',
+                                        data: this.data.score.map(value => -value)
+                                    },
                                 ]
                             };
                             echartsInstance.setOption(option);
@@ -475,19 +488,17 @@
                             color: [
                                 "#ce7870",
                                 "#ecbcb0",
-
                                 "#826a5f",
                                 "#6e7d75",
                                 "#becbcf",
                             ],
                             name: '综合评分',
                             type: 'line',
-                            stack: 'Total',
+                            //stack: 'Total',
                             data: this.data.score
                         },
                         {
                             color: [
-
                                 "#ecbcb0",
                                 "#826a5f",
                                 "#6e7d75",
@@ -504,7 +515,19 @@
                                 focus: 'series'
                             },
                             data: this.data.comment
-                        }
+                        },
+                        {
+                            color: [
+                                "#ce7870",
+                                "#826a5f",
+                                "#6e7d75",
+                                "#becbcf",
+                            ],
+                            name: '综合评分',
+                            type: 'line',
+                            //stack: 'Total',
+                            data: this.data.score.map(value => -value)
+                        },
                     ]
                 };
                 echartsInstance.setOption(option);
