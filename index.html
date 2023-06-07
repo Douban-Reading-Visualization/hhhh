@@ -708,6 +708,36 @@
                     "#ce7870",
                     "#826a5f",
                     "#ecbcb0",
+                    "#eba966",
+                    "#6e7d75",
+                    "#ce7870",
+                    "#826a5f",
+                    "#ecbcb0",
+                    "#eba966",
+                    "#6e7d75",
+                    "#ce7870",
+                    "#826a5f",
+                    "#ecbcb0",
+                    "#eba966",
+                    "#6e7d75",
+                    "#ce7870",
+                    "#826a5f",
+                    "#ecbcb0",
+                    "#eba966",
+                    "#6e7d75",
+                    "#ce7870",
+                    "#826a5f",
+                    "#ecbcb0",
+                    "#eba966",
+                    "#6e7d75",
+                    "#ce7870",
+                    "#826a5f",
+                    "#ecbcb0",
+                    "#eba966",
+                    "#6e7d75",
+                    "#ce7870",
+                    "#826a5f",
+                    "#ecbcb0",
                 ];
                 const chart = this.$refs.chart;
                 var myChart = echarts.init(chart);
@@ -728,8 +758,8 @@
                                 sizeRange: [30, 60],
                                 rotationRange: [0, 0],
                                 shape: 'pentagon',
-                                width: '100%',
-                                height: '100%',
+                                width: '90%',
+                                height: '80%',
                                 textStyle: {
                                     normal: {
                                         fontFamily: 'sans-serif',
@@ -742,7 +772,7 @@
                                         shadowColor: '#333'
                                     }
                                 },
-                                data: data.slice(0, 10)
+                                data: data.slice(0, 30)
                             }]
                         };
                         myChart.setOption(option);
@@ -755,6 +785,36 @@
                     const chart = this.$refs.chart;
                     var myChart = echarts.init(chart);
                     const color = [
+                        "#eba966",
+                        "#6e7d75",
+                        "#ce7870",
+                        "#826a5f",
+                        "#ecbcb0",
+                        "#eba966",
+                        "#6e7d75",
+                        "#ce7870",
+                        "#826a5f",
+                        "#ecbcb0",
+                        "#eba966",
+                        "#6e7d75",
+                        "#ce7870",
+                        "#826a5f",
+                        "#ecbcb0",
+                        "#eba966",
+                        "#6e7d75",
+                        "#ce7870",
+                        "#826a5f",
+                        "#ecbcb0",
+                        "#eba966",
+                        "#6e7d75",
+                        "#ce7870",
+                        "#826a5f",
+                        "#ecbcb0",
+                        "#eba966",
+                        "#6e7d75",
+                        "#ce7870",
+                        "#826a5f",
+                        "#ecbcb0",
                         "#eba966",
                         "#6e7d75",
                         "#ce7870",
@@ -775,8 +835,8 @@
                                     sizeRange: [30, 60],
                                     rotationRange: [0, 0],
                                     shape: 'pentagon',
-                                    width: '100%',
-                                    height: '100%',
+                                    width: '90%',
+                                    height: '80%',
                                     textStyle: {
                                         normal: {
                                             fontFamily: 'sans-serif',
@@ -789,11 +849,11 @@
                                             shadowColor: '#333'
                                         }
                                     },
-                                    data: data.slice((selected_year - 2000) * 10, (selected_year - 2000) * 10 + 10)
+                                    data: data.slice((selected_year - 2000) * 30, (selected_year - 2000) * 30 + 30)
                                 }]
                             };
 
-                            console.log((selected_year - 2000) * 10, (selected_year - 2000) * 10 + 10);
+                            console.log((selected_year - 2000) * 30, (selected_year - 2000) * 30 + 30);
                             console.log(data.slice((selected_year - 2000) * 10, (selected_year - 2000) * 10 + 10));
                             myChart.setOption(option);
                         })
