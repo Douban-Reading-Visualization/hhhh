@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rpart</title>
+    <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="right">
+            <div id="top-right">
+                <div ref="chart" style="width: 800px; height: 232px;"></div>
+            </div>
+            <div id="middle-right">
+                <div ref="chart" style="width: 800px; height: 232px;"></div>
+            </div>
+            <div id="bottom-right">
+                <div ref="chart" style="width: 800px; height: 232px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#bottom-right',
+            mounted() {
+                const chart = this.$refs.chart;
+                const echartsInstance = echarts.init(chart);
+
+                const option = {
+                    // Echarts option
+                    title: {
+                        text: 'bottom-right',
+                        left: 'center'
+                    },
+                    xAxis: {
+                        data: ['A', 'B', 'C', 'D', 'E', 'F']
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: 'Series 1',
+                        type: 'bar',
+                        data: [10, 20, 30, 40, 50, 60]
+                    }]
+                };
+
+                echartsInstance.setOption(option);
+            }
+        });
+        new Vue({
+            el: '#top-right',
+            mounted() {
+                const chart = this.$refs.chart;
+                const echartsInstance = echarts.init(chart);
+
+                const option = {
+                    // Echarts option
+                    title: {
+                        text: 'top-right',
+                        left: 'center'
+                    },
+                    xAxis: {
+                        data: ['A', 'B', 'C', 'D', 'E', 'F']
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: 'Series 1',
+                        type: 'bar',
+                        data: [10, 20, 30, 40, 50, 60]
+                    }]
+                };
+
+                echartsInstance.setOption(option);
+            }
+        });
+        new Vue({
+            el: '#middle-right',
+            mounted() {
+                const chart = this.$refs.chart;
+                const echartsInstance = echarts.init(chart);
+
+                const option = {
+                    // Echarts option
+                    title: {
+                        text: 'middle-right',
+                        left: 'center'
+                    },
+                    xAxis: {
+                        data: ['A', 'B', 'C', 'D', 'E', 'F']
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: 'Series 1',
+                        type: 'bar',
+                        data: [10, 20, 30, 40, 50, 60]
+                    }]
+                };
+
+                echartsInstance.setOption(option);
+            }
+        });
+        
+    </script>
+</body>
+
+</html>

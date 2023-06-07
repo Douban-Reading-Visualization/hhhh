@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <title>RDpart</title>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    var option;
+
+    option = {
+      title: {
+    text: 'downpart'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {
+    data: ['Expenses', 'Income', 'mark']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  xAxis: [
+    {
+      type: 'category',
+      axisTick: {
+        show: false
+      },
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    }
+  ],
+  series: [
+    {
+      name: 'Income',
+      type: 'bar',
+      stack: 'Total',
+      label: {
+        show: true
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [320, 302, 341, 374, 390, 450, 420]
+    },
+    {
+      name: 'mark',
+      type: 'line',
+      stack: 'Total',
+      data: [220, 182, 191, 234, 290, 330, 310]
+    },
+    {
+      name: 'Expenses',
+      type: 'bar',
+      stack: 'Total',
+      label: {
+        show: true,
+        position: 'left'
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [-120, -132, -101, -134, -190, -230, -210]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
